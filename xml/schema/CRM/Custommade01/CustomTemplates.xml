@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Custommade01</base>
+  <class>CustomTemplates</class>
+  <name>civicrm_custom_templates</name>
+  <comment>Table to collect system workflow templates</comment>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique CustomTemplates ID</comment>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>msg_title</name>
+    <type>varchar</type>
+    <lenght>128</lenght>
+    <comment>message title</comment>
+    <title>msg_title</title>
+  </field> 
+
+  <field>
+    <name>msg_template</name>
+    <title>msg_template</title>
+    <type>longtext</type>
+    <comment>message template</comment>
+  </field>
+
+</table>

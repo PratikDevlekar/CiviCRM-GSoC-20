@@ -1,0 +1,39 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 18px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 16px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+    <mj-raw>{assign var="greeting" value="{contact.email_greeting}"}</mj-raw>
+    <mj-raw>{if $greeting}</mj-raw>
+    <mj-text css-class="body-fix" font-size="10px">{$greeting},</mj-text>
+    <mj-text font-size="16px"><p>In order to <b>complete your signature</b>, we must confirm your e-mail.
+<br />
+Please do so by visiting the following web page by clicking
+on the link below or pasting the link into your browser.
+      <br /><br />Email confirmation page: <a href="{$petition.confirmUrl} ">{$petition.confirmUrl}</a></p>
+       </mj-text>
+        <mj-text>
+          If you did not sign this petition, please ignore this message.
+        </mj-text>
+      </mj-column>
+      </mj-section>
+  </mj-body>
+</mjml>

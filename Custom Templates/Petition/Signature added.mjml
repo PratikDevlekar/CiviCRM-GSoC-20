@@ -1,0 +1,34 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 22px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-raw>{assign var="greeting" value="{contact.email_greeting}"}</mj-raw>
+        <mj-raw>{if $greeting}</mj-raw>
+        <mj-text css-class="body-fix" font-size="10px">{$greeting},</mj-text>
+        <mj-text font-size="16px">Thank you for signing {$petition.title}.
+        </mj-text>
+        <mj-raw>{include file="CRM/Campaign/Page/Petition/SocialNetwork.tpl" petition_id=$survey_id noscript=true emailMode=true}</mj-raw>
+      </mj-column>
+    </mj-section>
+  </mj-body>

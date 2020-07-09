@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/admin/customtemplates</path>
+    <page_callback>CRM_Custommade01_Page_CustomTemplate</page_callback>
+    <title>CustomTemplate</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/admin/customtemplate/add</path>
+    <page_callback>CRM_Custommade01_Form_CustomTemplate</page_callback>
+    <title>CustomTemplate</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>

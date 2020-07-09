@@ -1,0 +1,48 @@
+<mjml>
+    <mj-head>
+        
+    </mj-head>
+    <mj-body background-color="#ffffeb">
+        <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+            <mj-column>
+               <mj-raw>{assign var="greeting" value="{contact.email_greeting}"}</mj-raw>
+               <mj-raw>{if $greeting}</mj-raw>
+               <mj-text>{$greeting},</mj-text>
+               <mj-raw>{/if}</mj-raw>
+               <mj-text>{ts}You have received a donation at your personal page{/ts}:</mj-text>
+               <mj-text><a href="{$pcpInfoURL}">{$page_title}</a></mj-text>
+               <mj-text>{ts}Your fundraising total has been updated.{/ts}</mj-text>
+               <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey"  />
+               <mj-raw> {if $is_honor_roll_enabled}</mj-raw>
+               <mj-text>{ts}The donor's name has been added to your honor roll unless they asked not to be included.{/ts}</mj-text>
+               <mj-raw> {/if}</mj-raw>
+               <mj-table id="crm-event_receipt" style="font-family: Arial, Verdana, sans-serif; text-align: left; width:100%; max-width:700px; padding:0; margin:0; border:0px;" border="1px solid #000000">
+                    <tr><td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Received{/ts}:</td><td style="padding: 4px; border-bottom: 1px solid #999;">{$receive_date|crmDate}</td></tr>
+                    <tr><td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Amount{/ts}:</td><td style="padding: 4px; border-bottom: 1px solid #999;"> {$total_amount|crmMoney:$currency}</td></tr>
+                    <tr><td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Name{/ts}:</td><td style="padding: 4px; border-bottom: 1px solid #999;">  {$donors_display_name}</td></tr>
+                    <tr><td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Email{/ts}:</td><td style="padding: 4px; border-bottom: 1px solid #999;"> {$donors_email}</td></tr>
+                </mj-table>
+            </mj-column>
+        </mj-section>
+      <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="google" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://mjml.io/">
+              </mj-social-element>
+            </mj-social>
+        </mj-column>
+      </mj-section>
+    </mj-body>
+</mjml>

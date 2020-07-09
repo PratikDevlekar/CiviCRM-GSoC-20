@@ -1,0 +1,63 @@
+<mjml id="crm-event_receipt">
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 28px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 20px !important;
+            line-height: 28px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+     <mj-column>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="22px" color="#000000" text-decoration="underline">{ts}Your Personal Campaign Page{/ts}</mj-text>
+       <mj-raw>{if $pcpStatus eq 'Approved'}</mj-raw>
+			<mj-text font-family="Arial" font-size="13px" ><p>{ts}Your personal campaign page has been approved and is now live.{/ts}</p><p>{ts}Whenever you want to preview, update or promote your page{/ts}:</p>
+        <ol>
+      <li><a href="{$loginUrl}">{ts}Login to your account{/ts}</a></li>
+      <li><a href="{$pcpInfoURL}">{ts}Go to your page{/ts}</a></li>
+     </ol>
+      <p>{ts}When you view your campaign page WHILE LOGGED IN, the page includes links to edit your page, tell friends, and update your contact info.{/ts}</p>
+        <mj-raw>{if $isTellFriendEnabled}</mj-raw>
+      <p><a href="{$pcpTellFriendURL}">{ts}After logging in, you can use this form to promote your fundraising page{/ts}</a></p>
+     <mj-raw>{/if}</mj-raw>
+     <mj-raw>{if $pcpNotifyEmailAddress}</mj-raw>
+      <p>{ts}Questions? Send email to{/ts}: {$pcpNotifyEmailAddress}</p>
+     <mj-raw>{/if}</mj-raw>
+			<mj-raw>{elseif $pcpStatus eq 'Not Approved'}</mj-raw>
+     <p>{ts}Your personal campaign page has been reviewed. There were some issues with the content which prevented us from approving the page. We are sorry for any inconvenience.{/ts}</p>
+     <mj-raw>{if $pcpNotifyEmailAddress}</mj-raw>   
+      <p>{ts}Please contact our site administrator for more information{/ts}: {$pcpNotifyEmailAddress}</p>
+     <mj-raw>{/if}</mj-raw>
+     <mj-raw>{/if}</mj-raw>   
+       </mj-text>
+      </mj-column>
+     </mj-section>
+	<mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="google" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://mjml.io/">
+              </mj-social-element>
+            </mj-social>
+        </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

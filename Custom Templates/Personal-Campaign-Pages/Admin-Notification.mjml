@@ -1,0 +1,102 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 22px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Personal Campaign Page Notification{/ts}</mj-text>
+         <mj-table css-class="body-fix" border="1px solid #000000">
+            <tr>
+                <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                      <mj-text css-class="body-fix" font-size="20px">{ts}Action{/ts}:</mj-text>
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                    <mj-raw>{if $mode EQ 'Update'}</mj-raw>
+                    <mj-text>{ts}Updated personal campaign page{/ts}</mj-text>
+                    <mj-raw>{else}</mj-raw>
+                    <mj-text>{ts}New personal campaign page{/ts}</mj-text>
+                    <mj-raw>{/if}</mj-raw>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                    {ts}Personal Campaign Page Title{/ts}
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                    {$pcpTitle}
+                </td>
+            </tr>
+            <tr>
+                 <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                    {ts}Current Status{/ts}
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                     {$pcpStatus}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                  <mj-text><a href="https://medium.com/@ger86/symfony-and-mjml-sending-emails-like-a-professional-a1b096a1abb1" colour="#f70000">{ts}View Page{/ts}</a></mj-text>
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;"></td>
+            </tr>
+            <tr>
+                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                  {ts}Supporter{/ts}
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                   	<mj-text><a href="{$supporterUrl}">{$supporterName}</a></mj-text>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                    {ts}Linked to Contribution Page{/ts}
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                  	<mj-text><a href="{$contribPageUrl}">{$contribPageTitle}</a></mj-text>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                  	<mj-text><a href="{$managePCPUrl}">{ts}Manage Personal Campaign Pages{/ts}</a></mj-text>
+                </td>
+                <td style="padding: 4px; border-bottom: 1px solid #999;"></td>
+            </tr>
+         </mj-table> 
+        </mj-column>
+    </mj-section>
+	<mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="google" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://mjml.io/">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://mjml.io/">
+              </mj-social-element>
+            </mj-social>
+        </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
