@@ -46,13 +46,13 @@
            </td>
          </tr>
          <tr>
-       			<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Participant Role{/ts}:</td>
-      			<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$participant.role}</td>
+       	    <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Participant Role{/ts}:</td>
+      	    <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$participant.role}</td>
          </tr>
-				<mj-raw>{if $isShowLocation}</mj-raw>
+	 <mj-raw>{if $isShowLocation}</mj-raw>
       	 <tr>
-        		<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}location{/ts}</td>
-       			<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.location.address.1.display|nl2br}</td>
+        	<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}location{/ts}</td>
+       		<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.location.address.1.display|nl2br}</td>
          </tr>
          <mj-raw>{/if}</mj-raw>
      <mj-raw>{if $event.location.phone.1.phone || $event.location.email.1.email}</mj-raw>
@@ -113,13 +113,11 @@
     <mj-section>
         <mj-column>
             <mj-social icon-size="30px" mode="horizontal">
-              <mj-social-element name="facebook" href="https://mjml.io/">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="google" href="https://mjml.io/">
+              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://mjml.io/">
-              </mj-social-element>
-              <mj-social-element name="youtube" href="https://mjml.io/">
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>
             </mj-social>
            </mj-column>
