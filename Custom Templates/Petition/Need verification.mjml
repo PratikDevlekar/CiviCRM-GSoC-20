@@ -25,15 +25,27 @@
     <mj-raw>{if $greeting}</mj-raw>
     <mj-text css-class="body-fix" font-size="10px">{$greeting},</mj-text>
     <mj-text font-size="16px"><p>In order to <b>complete your signature</b>, we must confirm your e-mail.
-<br />
+<br/>
 Please do so by visiting the following web page by clicking
 on the link below or pasting the link into your browser.
-      <br /><br />Email confirmation page: <a href="{$petition.confirmUrl} ">{$petition.confirmUrl}</a></p>
+      <br/><br/>Email confirmation page: <a href="{$petition.confirmUrl} ">{$petition.confirmUrl}</a></p>
        </mj-text>
         <mj-text>
           If you did not sign this petition, please ignore this message.
         </mj-text>
       </mj-column>
       </mj-section>
+      <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>

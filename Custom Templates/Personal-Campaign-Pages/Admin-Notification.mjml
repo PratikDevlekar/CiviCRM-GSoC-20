@@ -87,16 +87,14 @@
 	<mj-section>
         <mj-column>
             <mj-social icon-size="30px" mode="horizontal">
-              <mj-social-element name="facebook" href="https://mjml.io/">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="google" href="https://mjml.io/">
+              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://mjml.io/">
-              </mj-social-element>
-              <mj-social-element name="youtube" href="https://mjml.io/">
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>
             </mj-social>
-        </mj-column>
+           </mj-column>
     </mj-section>
   </mj-body>
 </mjml>
