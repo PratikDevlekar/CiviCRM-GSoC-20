@@ -64,7 +64,7 @@
                   {ts}Supporter{/ts}
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;">
-                   	<mj-text><a href="{$supporterUrl}">{$supporterName}</a></mj-text>
+                   <mj-text><a href="{$supporterUrl}">{$supporterName}</a></mj-text>
                 </td>
             </tr>
             <tr>
@@ -72,12 +72,12 @@
                     {ts}Linked to Contribution Page{/ts}
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;">
-                  	<mj-text><a href="{$contribPageUrl}">{$contribPageTitle}</a></mj-text>
+                  <mj-text><a href="{$contribPageUrl}">{$contribPageTitle}</a></mj-text>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
-                  	<mj-text><a href="{$managePCPUrl}">{ts}Manage Personal Campaign Pages{/ts}</a></mj-text>
+                  <mj-text><a href="{$managePCPUrl}">{ts}Manage Personal Campaign Pages{/ts}</a></mj-text>
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;"></td>
             </tr>
@@ -87,16 +87,14 @@
 	<mj-section>
         <mj-column>
             <mj-social icon-size="30px" mode="horizontal">
-              <mj-social-element name="facebook" href="https://mjml.io/">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="google" href="https://mjml.io/">
+              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://mjml.io/">
-              </mj-social-element>
-              <mj-social-element name="youtube" href="https://mjml.io/">
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>
             </mj-social>
-        </mj-column>
+           </mj-column>
     </mj-section>
   </mj-body>
 </mjml>
