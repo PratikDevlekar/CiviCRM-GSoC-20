@@ -158,7 +158,7 @@ function custommade01_civicrm_buildForm($formName, &$form) {
       $MJML_options[$CUSTOMTitles->id] = $CUSTOMTitles->msg_title;
     }
     $templatePath = realpath(dirname(__FILE__)."/templates");
-    $form->add('select', "CUSTOMtemplate", ts("Use MJML Template"),//mjml_field.tpl mai hai MJMLtemplate
+    $form->add('select', "CUSTOMtemplate", ts("Use MJML Template"),
       array('' => ts('- select -')) + $MJML_options , FALSE,
       array("onChange" => "selectMJMLValue( this.value, \"{}\");")
     );
