@@ -58,3 +58,4 @@ CREATE TABLE `civicrm_custom_templates` (
  
  
 )    ;
+-- INSERT INTO `civicrm_custom_templates` (`id`,`msg_title`,`msg_template`) VALUES (NULL,`datacheck`,`<mjml></mjml>`);
