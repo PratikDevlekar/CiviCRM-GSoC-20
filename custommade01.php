@@ -157,15 +157,6 @@ function custommade01_civicrm_buildForm($formName, &$form) {
     while($CUSTOMTitles->fetch()) {
       $MJML_options[$CUSTOMTitles->id] = $CUSTOMTitles->msg_title;
     }
-    $templatePath = realpath(dirname(__FILE__)."/templates");
-    $form->add('select', "CUSTOMtemplate", ts("Use MJML Template"),
-      array('' => ts('- select -')) + $MJML_options , FALSE,
-      array("onChange" => "selectMJMLValue( this.value, \"{}\");")
-    );
-    // dynamically insert a template block in the page
-    CRM_Core_Region::instance('page-body')->add(array(
-      'template' => "{$templatePath}/mjml_field.tpl"
-    ));
   }
 }
 
