@@ -1,0 +1,78 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text> 
+       	<mj-raw>{/if}</mj-raw>
+ 				<mj-text>{ts 1=$next_payment|truncate:10:''|crmDate}This is a reminder that the next payment on your pledge is due on %1.{/ts}</mj-text>   
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Payment Due{/ts}</mj-text>
+     <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Amount Due{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$amount_due|crmMoney:$currency}</td>  
+         </tr>     
+       </mj-table>
+       <mj-raw>{if $contribution_page_id}</mj-raw>
+       <mj-raw>{capture assign=contributionUrl}{crmURL p='civicrm/contribute/transact' q="reset=1&id=`$contribution_page_id`&cid=`$contact.contact_id`&pledgeId=`$pledge_id`&cs=`$checksumValue`" a=true h=0}{/capture}</mj-raw>
+       <mj-text><a href="{$contributionUrl}">{ts}Go to a web page where you can make your payment online{/ts}</a></mj-text>
+       <mj-raw>{else}</mj-raw>
+       <mj-text>{ts}Please mail your payment to{/ts}: {$domain.address}</mj-text>
+       <mj-raw>{/if}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Pledge Information{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Pledge Received{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$create_date|truncate:10:''|crmDate}</td>  
+         </tr>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Total Pledge Amount{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$amount|crmMoney:$currency}</td>  
+         </tr>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Total Paid{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$amount_paid|crmMoney:$currency}</td>  
+         </tr>
+       </mj-table>
+       <mj-text>{ts 1=$domain.phone 2=$domain.email}Please contact us at %1 or send email to %2 if you have questions
+or need to modify your payment schedule.{/ts}
+    <p>{ts}Thank your for your generous support.{/ts}</p></mj-text> 
+      </mj-column>
+    </mj-section>
+    
+    
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

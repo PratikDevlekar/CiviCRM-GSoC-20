@@ -1,0 +1,81 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text>
+       <mj-text>{ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}</mj-text>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Billing Name and Address{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Billing Name{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$billingName}</td>
+         </tr> 
+       	<tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Billing Address{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$address|nl2br}</td>
+         </tr> 
+      <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Email{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$email}</td>
+         </tr> 
+       </mj-table>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Credit Card Information{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Credit card type{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_type}</td>
+         </tr> 
+       <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Credit card number{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_number}</td>
+         </tr> 
+      <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Expires{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_exp_date|truncate:7:''|crmDate}</td>
+         </tr> 
+         <tr>
+        <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+         {ts 1=$receipt_from_email}If you have questions please contact us at %1{/ts}
+        </td>
+           <td></td>
+      </tr>
+       </mj-table>
+       </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>

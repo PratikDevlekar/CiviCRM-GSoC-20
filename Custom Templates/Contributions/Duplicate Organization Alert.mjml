@@ -1,0 +1,70 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text>{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}<br></br>
+    {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Organization Name{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$onBehalfName}</td>  
+         </tr>   
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Organization Email{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$onBehalfEmail}</td>  
+         </tr>   
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Organization Contact ID{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">	{$onBehalfID}</td>  
+         </tr>   
+       </mj-table>
+       <mj-text>{ts}If you think this may be a duplicate contact which should be merged with an existing record - Go to "Contacts >> Find and Merge Duplicate Contacts". Use the strict rule for Organizations to find the potential duplicates and merge them if appropriate.{/ts}</mj-text>
+       <mj-raw>{if $receiptMessage}</mj-raw>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Copy of Contribution Receipt{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{* FIXME: the below is most probably not HTML-ised *}
+        {$receiptMessage}</td>  
+         </tr> 
+       </mj-table>
+       <mj-raw>{/if}</mj-raw>
+       </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -1,0 +1,78 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">Dear {contact.display_name},</mj-text> 
+       	<mj-raw>{/if}</mj-raw>
+        <mj-text>You are confirmed to volunteer for the following project(s):</mj-text>
+       <mj-raw>{foreach from=$volunteer_projects item=volunteer_project}</mj-raw>
+       <mj-text><strong>Project:</strong>                 {$volunteer_project.title}</mj-text>
+       <mj-raw> {if !empty($volunteer_project.description)}</mj-raw>
+       <mj-text><strong>Description:</strong> {$volunteer_project.description}</mj-text>
+       <mj-raw>{/if}</mj-raw>		
+       
+      <mj-raw>{if !empty($volunteer_project.location)}</mj-raw> 
+      <mj-text><strong>Location:</strong><br></br>{$volunteer_project.location.address.street_address}</mj-text>           <mj-text>{$volunteer_project.location.address.street_address}
+       <br></br> {$volunteer_project.location.email}<br></br>{$volunteer_project.location.phone}</mj-text> 
+       <mj-raw>{/if}</mj-raw>                     
+       <mj-text><strong>Your Contact:</strong></mj-text>   
+       <mj-raw>{foreach from=$volunteer_project.contacts item=person}</mj-raw>
+       <mj-text>{$person.display_name} {$person.email}       {$person.phone}</mj-text>
+       <mj-text><strong>Shifts:</strong></mj-text>
+       <mj-table  css-class="body-fix" border="1px solid #000000">
+       <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Role</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Description</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Start Time</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Duration</td>
+       </tr>
+       <mj-raw>{foreach from=$volunteer_project.opportunities item=opportunity}</mj-raw>
+       <tr>
+       			<td  style="padding: 4px; border-bottom: 1px solid #999;">{$opportunity.role}</td>
+       			<td  style="padding: 4px; border-bottom: 1px solid #999;">{$opportunity.description}</td>
+       			<td  style="padding: 4px; border-bottom: 1px solid #999;">{$opportunity.display_time}</td>
+       			<td  style="padding: 4px; border-bottom: 1px solid #999;">{$opportunity.duration}</td>
+       </tr>
+       <mj-raw>{/foreach}</mj-raw>
+       </mj-table>
+       <mj-text>Thank you for your participation!</mj-text>
+       </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

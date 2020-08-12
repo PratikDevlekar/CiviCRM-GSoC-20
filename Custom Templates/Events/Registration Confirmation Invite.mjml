@@ -1,0 +1,168 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text> 
+       	<mj-raw>{/if}</mj-raw>
+        <mj-text>{ts}This is an invitation to complete your registration that was initially waitlisted.{/ts}</mj-text>
+       <mj-raw>{if !$isAdditional and $participant.id}</mj-raw>
+       <mj-text>{ts}Confirm Your Registration{/ts}</mj-text>
+       <mj-raw>{capture assign=confirmUrl}{crmURL p='civicrm/event/confirm' q="reset=1&participantId=`$participant.id`&cs=`$checksumValue`" a=true h=0 fe=1}{/capture}</mj-raw>
+    	<mj-text> <a href="{$confirmUrl}">{ts}Click here to confirm and complete your registration{/ts}</a></mj-text>
+      <mj-raw>{/if}</mj-raw> 
+      <mj-raw>{if $event.allow_selfcancelxfer }</mj-raw>
+      <mj-text>{ts}This event allows for{/ts}</mj-text>
+      <mj-raw> {capture assign=selfService}{crmURL p='civicrm/event/selfsvcupdate' q="reset=1&pid=`$participant.id`&{contact.checksum}" h=0 a=1 fe=1}{/capture}</mj-raw>
+      <mj-text><a href="{$selfService}"> {ts}self service cancel or transfer{/ts}</a></mj-text>
+      <mj-raw>{/if}</mj-raw>
+      <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Event Information and Location{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Title</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_title}</td>  
+         </tr>     
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Date</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_start_date|crmDate}
+       <mj-raw>{if $event.event_end_date}</mj-raw>
+       <mj-raw>{if $event.event_end_date|date_format:"%Y%m%d" == $event.event_start_date|date_format:"%Y%m%d"}</mj-raw><mj-text>{$event.event_end_date|crmDate:0:1}</mj-text>
+        <mj-raw>{else}</mj-raw>
+             {$event.event_end_date|crmDate}
+        <mj-raw>{/if}</mj-raw>
+        <mj-raw>{/if}</mj-raw>
+           </td>
+         </tr>
+         <tr>
+           <mj-raw>{if $conference_sessions}</mj-raw>
+         </tr>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Your schedule:{/ts}</td>
+       <td colspan="2" {$valueStyle}>
+  <mj-raw>{assign var='group_by_day' value='NA'}</mj-raw>
+  <mj-raw>{foreach from=$conference_sessions item=session}</mj-raw>
+    <mj-raw>{if $session.start_date|date_format:"%Y/%m/%d" != $group_by_day|date_format:"%Y/%m/%d"}</mj-raw>
+         <mj-raw>{assign var='group_by_day' value=$session.start_date}</mj-raw>
+     <mj-text><em>{$group_by_day|date_format:"%m/%d/%Y"}</em><br /></mj-text>    
+         <mj-raw>{/if}</mj-raw>
+     <mj-text>{$session.start_date|crmDate:0:1}</mj-text>
+  <mj-raw>{if $session.end_date}</mj-raw>
+         <mj-text>{$session.end_date|crmDate:0:1}</mj-text>
+        <mj-raw>{/if}</mj-raw> 
+        <mj-text>{$session.title}<br /></mj-text> 
+   <mj-raw>{if $session.location}&nbsp;&nbsp;&nbsp;&nbsp;</mj-raw>
+         <mj-text>{$session.location}<br /></mj-text><mj-raw>{/if}</mj-raw>
+  {/foreach}
+       </td>
+      </tr>
+     <mj-raw>{/if}</mj-raw>
+         <tr>
+       	    <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Participant Role{/ts}:</td>
+      	    <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$participant.role}</td>
+         </tr>
+	 <mj-raw>{if $isShowLocation}</mj-raw>
+      	 <tr>
+        	<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}location{/ts}</td>
+       		<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.location.address.1.display|nl2br}</td>
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+     <mj-raw>{if $event.location.phone.1.phone || $event.location.email.1.email}</mj-raw>
+      <mj-raw>{foreach from=$event.location.phone item=phone}</mj-raw>
+       <mj-raw>{if $phone.phone}</mj-raw>
+        <tr>
+         <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+           <mj-raw>{if $phone.phone_type}</mj-raw>
+           {$phone.phone_type_display}
+           <mj-raw>{else}</mj-raw>
+           {ts}Phone{/ts}
+           <mj-raw>{/if}</mj-raw>
+         </td>
+         <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+          {$phone.phone}
+         </td>
+        </tr>
+       <mj-raw>{/if}</mj-raw>
+      <mj-raw>{/foreach}</mj-raw>
+      <mj-raw>{foreach from=$event.location.email item=eventEmail}</mj-raw>
+      <mj-raw>{if $eventEmail.email}</mj-raw>
+        <tr>
+         <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+          {ts}Email{/ts}
+         </td>
+         <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+          {$eventEmail.email}
+         </td>
+        </tr>
+       <mj-rar>{/if}</mj-rar>
+       <mj-raw>{/foreach}</mj-raw>
+       <mj-raw>{/if}</mj-raw>
+         <mj-raw>{if $event.is_public}</mj-raw> 
+      <tr>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+         <mj-raw>{capture assign=icalFeed}{crmURL p='civicrm/event/ical' q="reset=1&id=`$event.id`" h=0 a=1 fe=1}{/capture}</mj-raw>
+        <mj-text><a href="{$icalFeed}">{ts}Download iCalendar File{/ts}</a></mj-text>
+       </td>
+        <td></td>
+      </tr>
+     <mj-raw>{/if}</mj-raw>
+  		</mj-table>
+           <mj-raw>{if $contact.email}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Registered Email{/ts}</mj-text>
+      <mj-table css-class="body-fix" border="1px solid #000000">  
+      <tr>
+        <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}contact email{ts}</td>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+        {$contact.email}
+       </td>
+      </tr>
+     <mj-raw>{/if}</mj-raw>
+     <mj-raw>{if $register_date}</mj-raw>
+      <tr>
+       <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+        {ts}Registration Date{/ts}
+       </td>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+        {$participant.register_date|crmDate}
+       </td>
+      </tr>
+     <mj-raw>{/if}</mj-raw>
+       </mj-table>
+        </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

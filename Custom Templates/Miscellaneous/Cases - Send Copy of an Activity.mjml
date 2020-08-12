@@ -1,0 +1,110 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Activity Summary{/ts} - {$activityTypeName}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <mj-raw>{if $isCaseActivity}</mj-raw>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Your Case Role(s){/ts</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$contact.role}</td>  
+         </tr> 
+         <mj-raw>{if $manageCaseURL}</mj-raw>
+       <tr>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+         <mj-text><a href="{$manageCaseURL}" title="{ts}Manage Case{/ts}">{ts}Manage Case{/ts}</a></mj-text>
+       </td>
+       <td></td>
+       </tr>
+      <mj-raw>{/if}</mj-raw>
+      <mj-raw>{/if}</mj-raw>
+       <mj-raw>{if $editActURL}</mj-raw>
+     <tr>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+         <mj-text><a href="{$editActURL}" title="{ts}Edit activity{/ts}">{ts}Edit activity{/ts}</a></mj-text>
+       </td>
+       <td></td>
+     </tr>
+     <mj-raw>{/if}</mj-raw>
+      <mj-raw>{if $viewActURL}</mj-raw>
+     <tr>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+  <mj-text><a href="{$viewActURL}" title="{ts}View activity{/ts}">{ts}View activity{/ts}</a></mj-text> 
+       </td>
+       <td></td>
+     </tr>
+     <mj-raw>{/if}</mj-raw>
+        <mj-raw>{foreach from=$activity.fields item=field}</mj-raw>
+      <tr>
+       <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+         <mj-text>{$field.label}</mj-text>
+         <mj-raw>{if $field.category}</mj-raw>
+         <mj-text>({$field.category})</mj-text>
+         <mj-raw>{/if}</mj-raw>
+       </td>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+        <mj-raw>{if $field.type eq 'Date'}</mj-raw>
+        <mj-text>{$field.value|crmDate:$config->dateformatDatetime}</mj-text>
+        <mj-raw>{else}</mj-raw>
+        <mj-text>{$field.value}</mj-text>
+        <mj-raw>{/if}</mj-raw>
+       </td>
+      </tr>
+     <mj-raw>{/foreach}</mj-raw>
+    </mj-table>
+       <mj-raw>{foreach from=$activity.customGroups key=customGroupName item=customGroup}</mj-raw> 
+     <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{$customGroupName}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <mj-raw>{foreach from=$customGroup item=field}</mj-raw>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;" >{$field.label}<span style="display: inline-block; margin-left:180px;"></span></td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+            <mj-raw>{if $field.type eq 'Date'}</mj-raw> 
+          <mj-text>{$field.value|crmDate:$config->dateformatDatetime}</mj-text>
+        <mj-raw>{else}</mj-raw>
+          <mj-text>{$field.value}</mj-text>
+        <mj-raw>{/if}</mj-raw>
+        </td>  
+         </tr> 
+         <mj-raw>{/foreach}</mj-raw>
+       </mj-table>
+			<mj-raw>{/foreach}</mj-raw>
+      </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

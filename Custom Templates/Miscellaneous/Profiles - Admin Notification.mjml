@@ -1,0 +1,67 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    <mj-section>
+    	<mj-column>
+      		 <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Submitted For{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$displayName}</td>  
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;"></td>
+         </tr> 
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Date{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$currentDate}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;"></td>
+         </tr> 
+          <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Contact Summary{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$contactLink}</td> 
+            <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;"></td>
+         </tr>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{$grouptitle}</td>
+           <mj-raw>{foreach from=$values item=value key=valueName}</mj-raw>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$valueName}</td> 
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$valueName}</td>  
+           <mj-raw>{/foreach}</mj-raw>
+         </tr>    
+        </mj-table>
+      </mj-column>
+    </mj-section>
+   
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

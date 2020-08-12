@@ -1,0 +1,75 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 20px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text> 
+       	<mj-raw>{/if}</mj-raw>
+        <mj-text>{ts 1=$membershipType}The automatic renewal of your %1 membership has been cancelled as requested. This does not affect the status of your membership - you will receive a separate notification when your membership is up for renewal.{/ts}</mj-text>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Membership Information{/ts}</mj-text> 
+       
+       <mj-table css-class="body-fix" border="1px solid #000000">  
+      <tr>
+        <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Membership Status{/ts}</td>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$membership_status}</td>
+      </tr>
+        <mj-raw>{if $mem_start_date}</mj-raw>
+       <tr>
+        <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+         {ts}Membership Start Date{/ts}
+        </td>
+        <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+         {$mem_start_date|crmDate}
+        </td>
+       </tr>
+      <mj-raw>{/if}</mj-raw>
+      <mj-raw>{if $mem_end_date}</mj-raw>
+       <tr>
+        <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+         {ts}Membership End Date{/ts}
+        </td>
+        <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+          {$mem_end_date|crmDate}
+        </td>
+       </tr>
+      <mj-raw>{/if}</mj-raw>
+       </mj-table>
+        </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
