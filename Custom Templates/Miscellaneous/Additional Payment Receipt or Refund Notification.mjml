@@ -1,0 +1,204 @@
+<mjml>
+  <mj-head>
+     <mj-style>
+       .body-fix div {
+          font-size: 18px !important;
+          line-height: 28px !important;
+        }
+        @media only screen and (max-width: 480px){
+          .body-fix div {
+            font-size: 13px !important;
+            line-height: 8px !important;
+          }
+        }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffeb">
+
+    <!-- Company Header -->
+    <mj-section>
+        <mj-column>
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+     <mj-column>
+       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
+     		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text> 
+       	<mj-raw>{/if}</mj-raw>
+        <mj-raw>{if $isRefund}</mj-raw>
+        <mj-text>{ts}A refund has been issued based on changes in your registration selections.{/ts}</mj-text>
+        <mj-raw>{else}</mj-raw>
+        <mj-text>{ts}Below you will find a receipt for this payment.{/ts}</mj-text>
+        <mj-raw>{if $paymentsComplete}</mj-raw>
+        <mj-text>{ts}Thank you for completing this contribution.{/ts}</mj-text>
+				<mj-raw>{/if}</mj-raw>
+        <mj-raw>{/if}</mj-raw>
+        <mj-raw>{if $isRefund}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Refund Details{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}This Refund Amount{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$refundAmount|crmMoney}</td>  
+         </tr>     
+       </mj-table>
+       <mj-raw>{else}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Payment Details{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}This Payment Amount{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$paymentAmount|crmMoney}</td>  
+         </tr> 
+        <mj-raw>{/if}</mj-raw>
+        <mj-raw>{if $receive_date}</mj-raw>
+        <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Transaction Date{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$receive_date|crmDate}</td>  
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+         <mj-raw>{if $trxn_id}</mj-raw>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Transaction #{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$trxn_id}</td>  
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+         <mj-raw>{if $paidBy}</mj-raw>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Paid By{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$paidBy}</td>  
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+         <mj-raw>{if $checkNumber}</mj-raw>
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Check Number{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$checkNumber}</td>  
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+       </mj-table>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Contribution Details{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Total Fee{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$totalAmount|crmMoney}</td>  
+         </tr>  
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Total Paid{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$totalPaid|crmMoney}</td>  
+         </tr>  
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Balance Owed{/ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$amountOwed|crmMoney}</td>  
+         </tr>  
+       </mj-table>
+       <mj-raw>{if $billingName || $address}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Billing Name and Address{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Billing Name{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$billingName}</td>
+         </tr> 
+       	<tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Billing Address{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$address|nl2br}</td>
+         </tr> 
+       </mj-table>
+       <mj-raw>{/if}</mj-raw>
+       <mj-raw>{if $credit_card_number}</mj-raw>
+       <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Credit Card Information{/ts}</mj-text>
+       <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Credit card type{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_type}</td>
+         </tr> 
+       <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Credit card number{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_number}</td>
+         </tr> 
+      <tr>
+           <td style="padding: 2px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Expires{/ts}</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$credit_card_exp_date|truncate:7:''|crmDate}</td>
+         </tr> 
+         <tr>
+      </tr>
+       </mj-table>
+      <mj-raw>{/if}</mj-raw>
+      <mj-raw>{if $component eq 'event'}</mj-raw>
+      	<mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Event Information and Location{/ts}</mj-text>
+          <mj-table css-class="body-fix" border="1px solid #000000">
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Event Title{ts}</td>
+      		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_title}</td>  
+         </tr>     
+         <tr>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Date</td>
+           <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_start_date|crmDate}
+       <mj-raw>{if $event.event_end_date}</mj-raw>
+       <mj-raw>{if $event.event_end_date|date_format:"%Y%m%d" == $event.event_start_date|date_format:"%Y%m%d"}</mj-raw>{$event.event_end_date|crmDate:0:1}
+        <mj-raw>{else}</mj-raw>
+             {$event.event_end_date|crmDate}
+        <mj-raw>{/if}</mj-raw>
+        <mj-raw>{/if}</mj-raw>
+           </td>
+         </tr>
+          <mj-raw>{if $event.participant_role}</mj-raw>  
+         <tr>
+       	    <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Participant Role{/ts}:</td>
+      	    <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$participant.role}</td>
+         </tr>
+     <mj-raw>{/if}</mj-raw>       
+	 <mj-raw>{if $isShowLocation}</mj-raw>
+      	 <tr>
+        	<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}location{/ts}</td>
+       		<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.location.address.1.display|nl2br}</td>
+         </tr>
+         <mj-raw>{/if}</mj-raw>
+     <mj-raw>{if $event.location.phone.1.phone || $event.location.email.1.email}</mj-raw>
+      <mj-raw>{foreach from=$event.location.phone item=phone}</mj-raw>
+       <mj-raw>{if $phone.phone}</mj-raw>
+        <tr>
+         <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+           <mj-raw>{if $phone.phone_type}</mj-raw>
+           {$phone.phone_type_display}
+           <mj-raw>{else}</mj-raw>
+           {ts}Phone{/ts}
+           <mj-raw>{/if}</mj-raw>
+         </td>
+         <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+          {$phone.phone}
+         </td>
+        </tr>
+       <mj-raw>{/if}</mj-raw>
+      <mj-raw>{/foreach}</mj-raw>
+      <mj-raw>{foreach from=$event.location.email item=eventEmail}</mj-raw>
+      <mj-raw>{if $eventEmail.email}</mj-raw>
+        <tr>
+         <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+          {ts}Email{/ts}
+         </td>
+         <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
+          {$eventEmail.email}
+         </td>
+        </tr>
+       <mj-rar>{/if}</mj-rar>
+       <mj-raw>{/foreach}</mj-raw>
+       <mj-raw>{/if}</mj-raw>
+  		 </mj-table>
+       <mj-raw>{/if}</mj-raw>
+       </mj-column> 
+    </mj-section>
+    <!-- Social Links-->
+    <mj-section>
+        <mj-column>
+            <mj-social icon-size="30px" mode="horizontal">
+              <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
+              </mj-social-element>
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
+              </mj-social-element>
+              <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
+              </mj-social-element>
+            </mj-social>
+           </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
