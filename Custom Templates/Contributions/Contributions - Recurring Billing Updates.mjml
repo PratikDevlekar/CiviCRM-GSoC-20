@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
@@ -26,6 +26,7 @@
      <mj-column>
        	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
      		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text>
+       <mj-raw>{/if}</mj-raw>
        <mj-text>{ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}Billing details for your recurring contribution of %1, every %2 %3 have been updated.{/ts}</mj-text>
        <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Billing Name and Address{/ts}</mj-text>
        <mj-table css-class="body-fix" border="1px solid #000000">

@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
@@ -60,12 +60,12 @@
          </tr>
          <tr>
            <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Your schedule:{/ts}</td>
-       <td colspan="2" {$valueStyle}>
+       <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
   <mj-raw>{assign var='group_by_day' value='NA'}</mj-raw>
   <mj-raw>{foreach from=$conference_sessions item=session}</mj-raw>
     <mj-raw>{if $session.start_date|date_format:"%Y/%m/%d" != $group_by_day|date_format:"%Y/%m/%d"}</mj-raw>
          <mj-raw>{assign var='group_by_day' value=$session.start_date}</mj-raw>
-     <mj-text><em>{$group_by_day|date_format:"%m/%d/%Y"}</em><br /></mj-text>    
+     <mj-text><em>{$group_by_day|date_format:"%m/%d/%Y"}</em></mj-text>    
          <mj-raw>{/if}</mj-raw>
      <mj-text>{$session.start_date|crmDate:0:1}</mj-text>
   <mj-raw>{if $session.end_date}</mj-raw>

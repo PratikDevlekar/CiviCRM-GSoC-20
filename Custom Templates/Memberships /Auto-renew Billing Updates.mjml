@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -26,6 +26,7 @@
      <mj-column>
        	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
      		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text>
+       <mj-raw>{/if}</mj-raw>
        <mj-text>{ts 1=$membershipType}Billing details for your automatically renewed %1 membership have been updated.{/ts}</mj-text>
        <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Billing Name and Address{/ts}</mj-text>
        <mj-table css-class="body-fix" border="1px solid #000000">

@@ -2,7 +2,7 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
@@ -56,8 +56,8 @@
          </tr>
        </mj-table>
        <mj-text>{ts 1=$domain.phone 2=$domain.email}Please contact us at %1 or send email to %2 if you have questions
-or need to modify your payment schedule.{/ts}
-    <p>{ts}Thank your for your generous support.{/ts}</p></mj-text> 
+or need to modify your payment schedule.{/ts}</mj-text>
+    <mj-text>{ts}Thank your for your generous support.{/ts}</mj-text> 
       </mj-column>
     </mj-section>
     

@@ -33,6 +33,6 @@ function civicrm_api3_custom_made_Convertmjml($params) {
 
     $params['mjml'] = str_replace('</mj-body>', ' </mj-container> </mj-body>', $params['mjml']);
   }
-  $result = CRM_Dynamicemails_BAO_MjmlTemplates::mjmlToHtml($params);
-  return civicrm_api3_create_success($result, $params, 'DynamicEmails', 'Convertmjml');
+  $result = CRM_Custommade01_BAO_CustomTemplates::mjmlToHtml($params);
+  return civicrm_api3_create_success($result, $params, 'CustomMade', 'Convertmjml');
 }

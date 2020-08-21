@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
@@ -29,11 +29,11 @@
        	<mj-text>{ts 1=$to_participant}Your Event Registration has been Transferred to %1.</mj-text>
        <mj-table css-class="body-fix" border="1px solid #000000">
          <tr>
-           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Title</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Event Title{/ts}</td>
       		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_title}</td>  
          </tr>     
          <tr>
-           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Date</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Event Date{/ts}</td>
            <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_start_date|crmDate}
        <mj-raw>{if $event.event_end_date}</mj-raw>
        <mj-raw>{if $event.event_end_date|date_format:"%Y%m%d" == $event.event_start_date|date_format:"%Y%m%d"}</mj-raw>{$event.event_end_date|crmDate:0:1}

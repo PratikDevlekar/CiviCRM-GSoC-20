@@ -2,7 +2,7 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 22px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
@@ -17,19 +17,20 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
         <mj-column>
           <mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
-          <mj-text>{$greeting}</mj-text>
+          <mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text>
           <mj-raw>{/if}</mj-raw>
    <mj-text>{ts 1="$contribPageTitle"}Thanks for creating a personal campaign page in support of %1.{/ts}</mj-text> 
         </mj-column>
     </mj-section>
     <mj-section border="2px solid ;">
       <mj-column>
+        <mj-raw>{if $pcpStatus eq 'Approved'}</mj-raw>
         <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Promoting Your Page{/ts}</mj-text>
         <mj-raw>{if $isTellFriendEnabled}</mj-raw>
         <mj-text>
@@ -51,12 +52,12 @@
          </ol>
          <p>{ts}When you view your campaign page WHILE LOGGED IN, the page includes links to edit your page, tell friends, and update your contact info.{/ts}</p>
           </mj-text>  
-        <mj-raw>{elseif $pcpStatus EQ 'Waiting Review'}</mj-raw>
       </mj-column>
     </mj-section>
     <mj-section>
       <mj-column>
-        <mj-text>
+      <mj-raw>{elseif $pcpStatus EQ 'Waiting Review'}</mj-raw>
+      <mj-text>
       <p>{ts}Your page requires administrator review before you can begin your fundraising efforts.{/ts}</p>
       <p>{ts}A notification email has been sent to the site administrator, and you will receive another notification from them as soon as the review process is complete.{/ts}</p>
       <p>{ts}You can still preview your page prior to approval{/ts}:</p>
@@ -76,7 +77,7 @@
             <mj-social icon-size="30px" mode="horizontal">
               <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
               </mj-social-element>
               <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>

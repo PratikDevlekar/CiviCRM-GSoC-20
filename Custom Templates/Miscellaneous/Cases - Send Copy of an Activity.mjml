@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
@@ -79,7 +79,7 @@
        <mj-table css-class="body-fix" border="1px solid #000000">
          <mj-raw>{foreach from=$customGroup item=field}</mj-raw>
          <tr>
-           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;" >{$field.label}<span style="display: inline-block; margin-left:180px;"></span></td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;" >{$field.label}<span style="display: inline-block; margin-left:45px;"></span></td>
       		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">
             <mj-raw>{if $field.type eq 'Date'}</mj-raw> 
           <mj-text>{$field.value|crmDate:$config->dateformatDatetime}</mj-text>

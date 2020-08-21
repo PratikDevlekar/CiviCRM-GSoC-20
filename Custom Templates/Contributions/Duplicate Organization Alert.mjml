@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,15 +18,14 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
     <mj-section>
      <mj-column>
-       	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
-     		<mj-text>{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}<br></br>
-    {ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}</mj-text>
+     		<mj-text>{ts}A contribution / membership signup was made on behalf of the organization listed below.{/ts}</mj-text>
+     <mj-text>{ts}The information provided matched multiple existing database records based on the configured Duplicate Matching Rules for your site.{/ts}</mj-text>
        <mj-table css-class="body-fix" border="1px solid #000000">
          <tr>
            <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Organization Name{/ts}</td>

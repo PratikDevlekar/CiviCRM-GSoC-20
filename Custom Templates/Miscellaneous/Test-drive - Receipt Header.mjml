@@ -2,7 +2,7 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
@@ -18,14 +18,14 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
     <mj-section>
      <mj-column>
-       <mj-text><p>{ts}Test-drive Email / Receipt{/ts}</p>
-    <p>{ts}This is a test-drive email. No live financial transaction has occurred.{/ts}</p></mj-text>   
+       <mj-text>{ts}Test-drive Email / Receipt{/ts}</mj-text>
+       <mj-text>{ts}This is a test-drive email. No live financial transaction has occurred.{/ts}</mj-text>   
      </mj-column> 
     </mj-section>
     <!-- Social Links-->

@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     
@@ -27,8 +27,9 @@
        	<mj-raw>{assign var="greeting" value="{contact.email_greeting}"}{if $greeting}</mj-raw>
      		<mj-text css-class="body-fix" font-size="20px">{$greeting},</mj-text> 
        	<mj-raw>{/if}</mj-raw>
-       <mj-text>{ts}Your recurring contribution has been updated as requested:{/ts}<br></br><mj-raw>{ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit}</mj-raw>Recurring contribution is for %1, every %2 %3(s){/ts}<mj-raw>{if $installments}</mj-raw><mj-raw>{ts 1=$installments}</mj-raw> for %1 installments{/ts}<mj-raw>{/if}</mj-raw>.<br></br>
-    <mj-raw>{ts 1=$receipt_from_email}</mj-raw>If you have questions please contact us at %1.{/ts}</mj-text>
+       <mj-text><p>{ts}Your recurring contribution has been updated as requested:{/ts} {ts 1=$amount 2=$recur_frequency_interval 3=$recur_frequency_unit} Recurring contribution is for %1, every %2 %3(s){/ts}<mj-raw>{if $installments}</mj-raw>{ts 1=$installments} for %1 installments{/ts}</p></mj-text>
+       <mj-raw>{/if}</mj-raw>
+    <mj-text>{ts 1=$receipt_from_email}If you have questions please contact us at %1.{/ts}</mj-text>
        </mj-column> 
     </mj-section>
     <!-- Social Links-->

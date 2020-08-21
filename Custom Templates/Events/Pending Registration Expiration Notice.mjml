@@ -2,13 +2,13 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 20px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
           .body-fix div {
             font-size: 13px !important;
-            line-height: 8px !important;
+            line-height: 24px !important;
           }
         }
     </mj-style>
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
@@ -31,11 +31,11 @@
            <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Event Information and Location{/ts}</mj-text>
        <mj-table css-class="body-fix" border="1px solid #000000">
          <tr>
-           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Title</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Event Title{/ts}</td>
       		 <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_title}</td>  
          </tr>     
          <tr>
-           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">Event Date</td>
+           <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Event Date{/ts}</td>
            <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.event_start_date|crmDate}
        <mj-raw>{if $event.event_end_date}</mj-raw>
        <mj-raw>{if $event.event_end_date|date_format:"%Y%m%d" == $event.event_start_date|date_format:"%Y%m%d"}</mj-raw>{$event.event_end_date|crmDate:0:1}
@@ -49,7 +49,7 @@
        	    <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Participant Role{/ts}:</td>
       	    <td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$participant.role}</td>
          </tr>
-	 <mj-raw>{if $isShowLocation}</mj-raw>
+	 			 <mj-raw>{if $isShowLocation}</mj-raw>
       	 <tr>
         	<td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}location{/ts}</td>
        		<td colspan="2" style="padding: 4px; border-bottom: 1px solid #999;">{$event.location.address.1.display|nl2br}</td>
@@ -107,7 +107,7 @@
       </tr>
      <mj-raw>{/if}</mj-raw>
        </mj-table>
-       <mj-text font-size="13px"><p>{ts 1=$domain.phone 2=$domain.email}Please contact us at %1 or send email to %2 if you have questions.{/ts}</p></mj-text>
+       <mj-text font-size="13px">{ts 1=$domain.phone 2=$domain.email}Please contact us at %1 or send email to %2 if you have questions.{/ts}</mj-text>
       </mj-column> 
     </mj-section>
     <mj-section>
@@ -115,7 +115,7 @@
             <mj-social icon-size="30px" mode="horizontal">
               <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
               </mj-social-element>
               <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>

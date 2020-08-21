@@ -2,7 +2,7 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 22px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
@@ -18,15 +18,16 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
       <mj-column>
         <mj-raw>{assign var="greeting" value="{contact.email_greeting}"}</mj-raw>
         <mj-raw>{if $greeting}</mj-raw>
-        <mj-text css-class="body-fix" font-size="10px">{$greeting},</mj-text>
-        <mj-text font-size="16px">Thank you for signing {$petition.title}.
+        <mj-text css-class="body-fix">{$greeting},</mj-text>
+        <mj-raw>{/if}</mj-raw>
+        <mj-text>Thank you for signing {$petition.title}.
         </mj-text>
         <mj-raw>{include file="CRM/Campaign/Page/Petition/SocialNetwork.tpl" petition_id=$survey_id noscript=true emailMode=true}</mj-raw>
       </mj-column>
@@ -36,7 +37,7 @@
             <mj-social icon-size="30px" mode="horizontal">
               <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
               </mj-social-element>
               <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>

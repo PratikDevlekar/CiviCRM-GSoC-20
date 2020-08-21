@@ -2,7 +2,7 @@
   <mj-head>
      <mj-style>
        .body-fix div {
-          font-size: 22px !important;
+          font-size: 18px !important;
           line-height: 28px !important;
         }
         @media only screen and (max-width: 480px){
@@ -18,7 +18,7 @@
     <!-- Company Header -->
     <mj-section>
         <mj-column>
-            <mj-image width="120px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
+            <mj-image width="170px" align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/CiviCRM.svg/1200px-CiviCRM.svg.png" /> 
         </mj-column>
     </mj-section>
     <mj-section>
@@ -26,8 +26,7 @@
             <mj-text css-class="body-fix" align="center" font-style="italic" font-size="20px" color="#000000" text-decoration="underline">{ts}Personal Campaign Page Notification{/ts}</mj-text>
          <mj-table css-class="body-fix" border="1px solid #000000">
             <tr>
-                <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
-                      <mj-text css-class="body-fix" font-size="20px">{ts}Action{/ts}:</mj-text>
+                <td  style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">{ts}Action{/ts}
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;">
                     <mj-raw>{if $mode EQ 'Update'}</mj-raw>
@@ -54,8 +53,8 @@
                 </td>
             </tr>
             <tr>
-                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
-                  <mj-text><a href="https://medium.com/@ger86/symfony-and-mjml-sending-emails-like-a-professional-a1b096a1abb1" colour="#f70000">{ts}View Page{/ts}</a></mj-text>
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
+                  <mj-text><a href="{$pcpURL}">{ts}View Page{/ts}</a></mj-text>
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;"></td>
             </tr>
@@ -76,7 +75,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="padding: 4px; border-bottom: 1px solid #999; background-color: #d7ffd4;">
+                <td style="padding: 4px; border-bottom: 1px solid #999;">
                   <mj-text><a href="{$managePCPUrl}">{ts}Manage Personal Campaign Pages{/ts}</a></mj-text>
                 </td>
                 <td style="padding: 4px; border-bottom: 1px solid #999;"></td>
@@ -89,7 +88,7 @@
             <mj-social icon-size="30px" mode="horizontal">
               <mj-social-element name="facebook" href="https://www.facebook.com/civicrm/">
               </mj-social-element>
-              <mj-social-element name="twitter" href="https://www.facebook.com/civicrm/">
+              <mj-social-element name="twitter" href="https://twitter.com/civicrm?lang=en">
               </mj-social-element>
               <mj-social-element name="youtube" href="https://www.youtube.com/channel/UCbmFxo3HyO9gaNG40byQjiQ">
               </mj-social-element>
