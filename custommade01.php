@@ -6,7 +6,7 @@ use CRM_Custommade01_ExtensionUtil as E;
 /**
  * Implements hook_civicrm_config().
  *
- * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/ 
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/
  */
 function custommade01_civicrm_config(&$config) {
   _custommade01_civix_civicrm_config($config);
@@ -185,4 +185,4 @@ function custommade01_civicrm_navigationMenu(&$menu) {
     'separator' => 0,
   ));
   _custommade01_civix_navigationMenu($menu);
-} 
+}
