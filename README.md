@@ -48,18 +48,18 @@ I have tried to put up some screen-shots of extension to give you a small glimps
 * It has some basic functionality of adding, editing and deleting templates.
 * The moment you push templates it will produce a stack view showing Templates with their Message title and other basic functions.
 
-<img src="images/EXT01.png" >
+![](images/EXT01.png)
 
-#### Form 
+#### Form
 
 * It acts as a key to input elements.
 * Templates are coded in a text box named “MJML Format”, This should be done without any error.
 * It covers functionality like saving, canceling and changing the MJML format to HTML which can be seen in a text box named “HTML FORMAT”.
 * Each template get stores and updated in `civicrm_custom_templates` table.
 
-<img src="images/EXT02.png">
+![description](images/EXT02.png)
 
-<img src="images/EXT03.png">
+![](images/EXT03.png)
 
 ## Templates
 
@@ -80,17 +80,17 @@ To save the HTML result to a file of your choice use:
 A quick view of one of the templates can be seen below.
 
 [Desktop view]<br>
-<img src="images/Deskview.jpeg"  width="750px">
+![](images/Deskview.jpeg)
 
 [Phone view]<br>
-<img src="images/Phoneview.jpeg" width="350px"> 
+![](images/Phoneview.jpeg)
 
 ## Future Work
-	
+
 This extension, though working for the features it has currently, is by no means complete.  I have tried to give a solid foundation to this extension and any creative mind can do wonders with this base.
 #### These are some of my thoughts:
 
-* Auto MJML syntax-completer can be added with an error-detecting functionality, which will detect basic errors in MJML syntax while writing code. 
+* Auto MJML syntax-completer can be added with an error-detecting functionality, which will detect basic errors in MJML syntax while writing code.
 * Complete the task of preview templates.
 * This extension can easily be integrated with Mosaico and features can be extended.
 
