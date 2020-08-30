@@ -63,7 +63,7 @@ I have tried to put up some screen-shots of extension to give you a small glimps
 
 ## Templates
 
-More than 25+ Templates are redesigned to be more flexible and responsive, Each template can be found in both MJML and HTML format; to preview those templates just follow this [clickme](https://github.com/PratikDevlekar/GSoC/blob/master/Custom%20Templates/Preview_Link.md) and have a small experience of the web MJML “Try It Live” feature. Those template codes are converted to HTML locally on my machine and can be found in the `Customize System Workflow Message` folder.
+More than 25+ Templates are redesigned to be more flexible and responsive, Each template can be found in both MJML and HTML format; to preview those templates just  [clickme](https://github.com/PratikDevlekar/GSoC/blob/master/Custom%20Templates/Preview_Link.md) and have a small experience of the web MJML “Try It Live” feature. Those template codes are converted to HTML locally on my machine and can be found in the `Customize System Workflow Message` folder.
 
 To convert MJML locally just run this command:
 
@@ -83,7 +83,7 @@ A quick view of one of the templates can be seen below.
 ![](images/Deskview.jpeg)
 
 [Phone view]<br>
-![](images/Phoneview.jpeg)
+<img src="images/Phoneview.jpeg" width="450px"> 
 
 ## Future Work
 
@@ -91,7 +91,7 @@ This extension, though working for the features it has currently, is by no means
 #### These are some of my thoughts:
 
 * Auto MJML syntax-completer can be added with an error-detecting functionality, which will detect basic errors in MJML syntax while writing code.
-* Complete the task of preview templates.
+* Can have a feature of an instant preview of HTML on a single page with the HTML code
 * This extension can easily be integrated with Mosaico and features can be extended.
 
 
